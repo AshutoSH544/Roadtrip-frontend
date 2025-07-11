@@ -1,0 +1,63 @@
+from fpdf import FPDF
+
+# Rebuilding the PDF with a personalized, natural structure and less templated tone
+pdf = FPDF()
+pdf.add_page()
+pdf.set_font("Arial", 'B', 16)
+pdf.cell(200, 10, "RoadTrip Planner - UI Wireframes & Functional Layout", ln=True, align='C')
+
+# Project Introduction
+pdf.set_font("Arial", 'B', 12)
+pdf.cell(200, 10, "Project Introduction:", ln=True)
+pdf.set_font("Arial", '', 11)
+pdf.multi_cell(0, 10, "This web application has been developed to help users explore and plan road trips around the world. It provides a clean interface to browse existing trips or create personalized itineraries. The platform is designed to be responsive and easy to use.")
+
+# Application Screens / Wireframe Flow
+pdf.set_font("Arial", 'B', 12)
+pdf.cell(200, 10, "\nInterface Structure:", ln=True)
+pdf.set_font("Arial", '', 11)
+screens = [
+    "- Home Page: Includes a hero image, tagline, and a search bar.",
+    "- Browse Trips: Displays a collection of trip cards with basic info.",
+    "- Create Trip: Allows users to add a new trip with destination and dates.",
+    "- Navigation Bar: Links to Home, Trips, and Trip Creation.",
+    "- Footer: Simple site info and copyright."
+]
+for screen in screens:
+    pdf.cell(200, 8, screen, ln=True)
+
+# React Component Organization
+pdf.set_font("Arial", 'B', 12)
+pdf.cell(200, 10, "\nReact Component Mapping:", ln=True)
+pdf.set_font("Arial", '', 11)
+components = [
+    "Navbar - Top menu links",
+    "HeroSection - Intro message and search box",
+    "TripCard - Displays each trip's summary",
+    "TripForm - Form inputs for adding a new trip",
+    "Footer - Bottom info",
+    "Home.js - Layout of homepage",
+    "TripList.js - Trip listing page",
+    "CreateTrip.js - Page with form logic",
+    "api.js - Axios API interaction"
+]
+for comp in components:
+    pdf.cell(200, 8, f"- {comp}", ln=True)
+
+# Functional Flow
+pdf.set_font("Arial", 'B', 12)
+pdf.cell(200, 10, "\nHow It Works:", ln=True)
+pdf.set_font("Arial", '', 11)
+pdf.multi_cell(0, 10, "Users land on the homepage, use the search bar or browse existing trips. From the Trips page, they can view summarized trip details. If they want to create a trip, they go to the Create Trip form and submit information, which is sent to the backend.")
+
+# UI Guidelines Summary
+pdf.set_font("Arial", 'B', 12)
+pdf.cell(200, 10, "\nDesign & Presentation Highlights:", ln=True)
+pdf.set_font("Arial", '', 11)
+pdf.multi_cell(0, 10, "To keep the app modern and clean, a flat layout with professional fonts like Poppins/Roboto is used. Components are minimalistic and align with responsive web standards. The design avoids unnecessary colors and distractions.")
+
+# Save as PDF
+final_natural_pdf = "/mnt/data/roadtrip_wireframes_final_ashutosh.pdf"
+pdf.output(final_natural_pdf)
+
+final_natural_pdf

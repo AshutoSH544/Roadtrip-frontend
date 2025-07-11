@@ -1,0 +1,69 @@
+# Replacing Unicode dash characters with regular hyphens to fix PDF encoding issue
+pdf = FPDF()
+pdf.add_page()
+pdf.set_font("Arial", 'B', 16)
+pdf.cell(200, 10, "RoadTrip Planner - Wireframes & Component Breakdown", ln=True, align='C')
+
+# Slide: Objective
+pdf.set_font("Arial", 'B', 12)
+pdf.cell(200, 10, "Objective:", ln=True)
+pdf.set_font("Arial", '', 11)
+pdf.multi_cell(0, 10, "This full stack web application helps users browse, plan, and create road trips across the world. Users can explore trip cards, view details, and submit their own custom road trip plans.")
+
+# Slide: Wireframe Sections
+pdf.set_font("Arial", 'B', 12)
+pdf.cell(200, 10, "\nWireframe Sections:", ln=True)
+pdf.set_font("Arial", '', 11)
+sections = [
+    "1. Home Page - Hero banner, search bar, featured trips",
+    "2. Trip List Page - Grid of trip cards fetched from backend",
+    "3. Trip Details Page (future) - Expanded view of a selected trip",
+    "4. Create Trip Page - Form with title, location, date inputs",
+    "5. Navbar & Footer - Navigation links, project branding"
+]
+for sec in sections:
+    pdf.cell(200, 8, sec, ln=True)
+
+# Slide: Component Breakdown
+pdf.set_font("Arial", 'B', 12)
+pdf.cell(200, 10, "\nComponent Breakdown:", ln=True)
+pdf.set_font("Arial", '', 11)
+components = [
+    "Navbar.js - Navigation menu (Home, Trips, Create)",
+    "HeroSection.js - Landing banner with heading and search",
+    "TripCard.js - Individual card for each trip",
+    "TripForm.js - Form to submit a new trip",
+    "Footer.js - Copyright footer",
+    "Home.js - Uses Hero + Footer",
+    "TripList.js - Fetches and lists TripCards",
+    "CreateTrip.js - Uses TripForm to create a trip",
+    "api.js - Axios-based backend service functions"
+]
+for comp in components:
+    pdf.cell(200, 8, comp, ln=True)
+
+# Slide: User Flow
+pdf.set_font("Arial", 'B', 12)
+pdf.cell(200, 10, "\nUser Flow:", ln=True)
+pdf.set_font("Arial", '', 11)
+user_flow = "Homepage -> Browse Trips -> View Details -> Create New Trip -> Confirmation"
+pdf.multi_cell(0, 10, user_flow)
+
+# Slide: Design Considerations
+pdf.set_font("Arial", 'B', 12)
+pdf.cell(200, 10, "\nDesign Considerations:", ln=True)
+pdf.set_font("Arial", '', 11)
+design = [
+    "- Clean pastel color scheme (future CSS)",
+    "- Responsive layout using Flexbox or Grid",
+    "- Font: Poppins or Roboto (modern, professional)",
+    "- Minimalistic, accessible, and intuitive design"
+]
+for line in design:
+    pdf.cell(200, 8, line, ln=True)
+
+# Save final PDF
+pdf_path_final = "/mnt/data/roadtrip_wireframes_ashutosh.pdf"
+pdf.output(pdf_path_final)
+
+pdf_path_final
